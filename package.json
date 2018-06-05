@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/coafer/Eat_the_burger#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "handlebars": "^4.0.11",
     "npm": "^6.1.0"
