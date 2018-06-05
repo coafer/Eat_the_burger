@@ -1,0 +1,29 @@
+{
+  "name": "eat_the_burger",
+  "version": "1.0.0",
+  "description": "Burger restaurant app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coafer/Eat_the_burger.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Handlebars",
+    "SQL"
+  ],
+  "author": "Adrian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coafer/Eat_the_burger/issues"
+  },
+  "homepage": "https://github.com/coafer/Eat_the_burger#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^6.1.0"
+  }
+}
