@@ -20,11 +20,12 @@
                 </div>
                 <div class="wrapper_list">
                     <ul class="unordered-list w-list-unstyled">
+                        {{#each burgersD}} {{#unless this.tocart}}
                         <li class="list-item">
                             <div class="burger_icon_cont">
                                 <img src="/assets/images/burger_icon2x.png" width="29.5">
                             </div>
-                            <div class="burger_text">1- Cheese burger</div>
+                            <div class="burger_text">{{this.id}}. {{this.name}}</div>
                             <div>
                                 <a href="#" class="list_btn">
                                     <span class="icon_sec_btn"></span>Delete</a>
@@ -34,34 +35,7 @@
                                     </span>Add</a>
                             </div>
                         </li>
-                        <li class="list-item">
-                            <div class="burger_icon_cont">
-                                <img src="/assets/images/burger_icon2x.png" width="29.5">
-                            </div>
-                            <div class="burger_text">2 - Hamburger meety</div>
-                            <div>
-                                <a href="#" class="list_btn">
-                                    <span class="icon_sec_btn"></span>Delete</a>
-                                <a href="#" class="list_btn">
-                                    <span>
-                                        <strong class="icon_sec_btn"></strong>
-                                    </span>Add</a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="burger_icon_cont">
-                                <img src="/assets/images/burger_icon2x.png" width="29.5">
-                            </div>
-                            <div class="burger_text">3 - Fish burger</div>
-                            <div class="btns_cont">
-                                <a href="#" class="list_btn">
-                                    <span class="icon_sec_btn"></span>Delete</a>
-                                <a href="#" class="list_btn">
-                                    <span>
-                                        <strong class="icon_sec_btn"></strong>
-                                    </span>Add</a>
-                            </div>
-                        </li>
+                        {{/unless}} {{/each}}
                     </ul>
                 </div>
             </div>
