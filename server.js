@@ -3,12 +3,12 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
 // Set port and Heroku
-var PORT = process.env.PORT || 8060;
+var PORT = process.env.PORT || 8000;
 
 var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(__dirname + "public"));
+app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
