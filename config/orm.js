@@ -11,6 +11,16 @@ var orm = {
       }
       cb(result);
     });
+  },
+  update: function(tableInput, condition, cb) {
+    var queryString =
+      "UPDATE " + tableInput + " SET tocart=true WHERE id=" + condition + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
   }
 };
 
