@@ -1,8 +1,6 @@
 // Import MySQL connection.
 var connection = require("./connection");
 
-
-
 // Object for all our SQL statement functions.
 var orm = {
   all: function(tableInput, cb) {
