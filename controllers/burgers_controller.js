@@ -22,4 +22,25 @@ router.put("/burgers/update", function(req, res) {
   });
 });
 
+router.put("/burgers/updatecart", function(req, res) {
+  burger.updatecart(req.body.burger_id, function(result) {
+    console.log(result);
+    res.redirect("/");
+  });
+});
+
+router.post("/burgers/create", function(req, res) {
+  burger.create(req.body.custom_burger, function(result) {
+    console.log(result);
+    res.redirect("/");
+  });
+});
+
+router.delete("/burgers/delete", function(req, res) {
+  burger.delete(req.body.burger_id, function(result) {
+    console.log(result);
+    res.redirect("/");
+  });
+});
+
 module.exports = router;

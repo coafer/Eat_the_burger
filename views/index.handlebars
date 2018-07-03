@@ -6,17 +6,11 @@
                     <img src="/assets/images/Burger_logo_2x.png" width="133" class="image">
                 </div>
                 <div class="form_block w-form">
-                    <form id="email-form" name="email-form" data-name="Email Form">
-                        <input type="text" class="text-field w-input" maxlength="256" name="custom_burger" data-name="custom_burger" placeholder="Enter your custom burger"
-                            id="custom_burger">
+                    <form id="email-form" name="email-form" data-name="Email Form" action="burgers/create" method="POST">
+                        <input type="text" class="text-field w-input" maxlength="256" name="custom_burger" placeholder="Enter your custom burger"
+                            id="custom_burger" value="">
                         <input type="submit" value="Add to the list" data-wait="Please wait..." class="button w-button">
                     </form>
-                    <div class="w-form-done">
-                        <div>Thank you! Your submission has been received!</div>
-                    </div>
-                    <div class="w-form-fail">
-                        <div>Oops! Something went wrong while submitting the form.</div>
-                    </div>
                 </div>
                 <div class="wrapper_list">
                     <ul class="unordered-list w-list-unstyled">
@@ -26,9 +20,12 @@
                                 <img src="/assets/images/burger_icon2x.png" width="29.5">
                             </div>
                             <div class="burger_text">{{this.id}}. {{this.name}}</div>
-                            <div>
-                                <a href="#" class="list_btn">
-                                    <span class="icon_sec_btn"></span>Delete</a>
+                            <div class="list_btns_cont">
+                                <form method="POST" action="/burgers/delete?_method=DELETE">
+                                    <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+                                    <button type="submit" class="list_btn">
+                                        <span class="icon_sec_btn"></span>Delete</button>
+                                </form>
                                 <form method="POST" action="/burgers/update?_method=PUT">
                                     <input type="hidden" name="burger_id" type="text" value={{this.id}}>
                                     <button type="submit" class="list_btn">
@@ -45,39 +42,22 @@
             <div class="column right w-col w-col-6">
                 <div class="wrapper_chekout">
                     <ul class="unordered-list w-list-unstyled">
+                        {{#each burgersD}} {{#if this.tocart}}
                         <li class="list-item cart">
                             <div class="burger_icon_cont cart">
                                 <img src="/assets/images/burger_icon2x.png" width="29.5">
                             </div>
-                            <div class="burger_text">1- Cheese burger</div>
-                            <a href="#" class="list_btn">
-                                <span class="icon_sec_btn">
-                                    <strong></strong>
-                                </span>
-                            </a>
+                            <div class="burger_text">{{this.id}}. {{this.name}}</div>
+                            <form method="POST" action="/burgers/updatecart?_method=PUT">
+                                <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+                                <button type="submit" class="list_btn">
+                                    <span class="icon_sec_btn">
+                                        <strong></strong>
+                                    </span>
+                                </button>
+                            </form>
                         </li>
-                        <li class="list-item cart">
-                            <div class="burger_icon_cont cart">
-                                <img src="/assets/images/burger_icon2x.png" width="29.5">
-                            </div>
-                            <div class="burger_text">2 - Hamburger meety</div>
-                            <a href="#" class="list_btn">
-                                <span class="icon_sec_btn">
-                                    <strong></strong>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-item cart">
-                            <div class="burger_icon_cont cart">
-                                <img src="/assets/images/burger_icon2x.png" width="29.5">
-                            </div>
-                            <div class="burger_text">3 - Fish burger</div>
-                            <a href="#" class="list_btn">
-                                <span class="icon_sec_btn">
-                                    <strong></strong>
-                                </span>
-                            </a>
-                        </li>
+                        {{/if}} {{/each}}
                     </ul>
                 </div>
                 <a href="#" class="button disabled w-button">checkout with credits</a>
